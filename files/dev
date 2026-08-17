@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+clear
+echo -e "\033[1;96m╔══════════════════════════════════════╗"
+echo -e "║ \033[1;92mHIMANSHU CODEWORLD — DEV             \033[1;96m║"
+echo -e "╚══════════════════════════════════════╝\033[0m"
+echo
+echo "Developer tools and terminal customization."
+echo "Project: Himanshu CodeWorld"
+echo "Commands: help, bname, update, chat, dev, unstall"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+clear
+echo -e "\033[1;96m╔══════════════════════════════════════╗"
+echo -e "║ \033[1;92mHIMANSHU CODEWORLD — UPDATE          \033[1;96m║"
+echo -e "╚══════════════════════════════════════╝\033[0m"
+echo
+echo -e "\033[1;92m[✓]\033[0m Local theme is already up to date."
+echo -e "\033[1;93m[!]\033[0m This package intentionally uses no hidden/obfuscated updater."

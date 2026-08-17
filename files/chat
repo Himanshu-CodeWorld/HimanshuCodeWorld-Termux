@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+clear
+echo -e "\033[1;96m╔══════════════════════════════════════╗"
+echo -e "║ \033[1;92mHIMANSHU CODEWORLD — CHAT            \033[1;96m║"
+echo -e "╚══════════════════════════════════════╝\033[0m"
+echo
+echo "Local chat module placeholder."
+echo "Connect your own API/backend here when ready."

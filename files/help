@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+clear
+g='\033[1;92m'; c='\033[1;96m'; y='\033[1;93m'; n='\033[0m'; b='\033[1;94m'
+if command -v getprop >/dev/null 2>&1; then
+  MODEL="$(getprop ro.product.model)"
+  VENDOR="$(getprop ro.product.manufacturer)"
+else
+  MODEL="$(hostname)"
+  VENDOR="$(uname -s)"
+fi
+disk="$(df -h "$HOME" 2>/dev/null | awk 'NR==2 {print $3 " / " $2 " (" $5 ")"}')"
+
+echo
+echo -e "${c}        ╔══════════════════════════════════════╗"
+echo -e "${c}        ║ ${g}      HIMANSHU CODEWORLD           ${c}║"
+echo -e "${c}        ╚══════════════════════════════════════╝${n}"
+echo
+echo -e "${b}╭── ${g}SYSTEM${b} ────────────────────────────────╮"
+echo -e "${b}│ ${c}Device : ${y}${VENDOR} ${MODEL}"
+echo -e "${b}│ ${c}Disk   : ${y}${disk:-unknown}"
+echo -e "${b}╰────────────────────────────────────────────╯${n}"
+echo
+echo -e "${b}╭── ${g}COMMANDS${b} ──────────────────────────────╮"
+echo -e "${b}│ ${g}help     ${c}Show this menu"
+echo -e "${b}│ ${g}bname    ${c}Change the terminal banner name"
+echo -e "${b}│ ${g}update   ${c}Refresh Himanshu CodeWorld theme"
+echo -e "${b}│ ${g}chat     ${c}Open the local developer chat menu"
+echo -e "${b}│ ${g}dev      ${c}Show developer information"
+echo -e "${b}│ ${g}unstall  ${c}Remove Himanshu CodeWorld customization"
+echo -e "${b}╰────────────────────────────────────────────╯${n}"
+echo

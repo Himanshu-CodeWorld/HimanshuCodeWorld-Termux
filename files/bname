@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+clear
+CONF="$HOME/.Himanshu-CodeWorld/username"
+mkdir -p "$(dirname "$CONF")"
+current="$(cat "$CONF" 2>/dev/null || echo 'HIMANSHU')"
+echo -e "\033[1;96mCurrent banner name: \033[1;92m$current\033[0m"
+read -rp $'\033[1;92m[+] Enter new name ───► \033[0m' name
+[ -n "$name" ] || { echo "Name cannot be empty."; exit 1; }
+if [[ ! "$name" =~ ^[a-zA-Z0-9[:space:]-]+$ ]]; then
+  echo "Use letters, numbers, spaces or hyphens only."; exit 1
+fi
+printf '%s\n' "$name" > "$CONF"
+echo -e "\033[1;92m[+] Banner name saved: $name\033[0m"
+echo "Restart your shell to apply it."

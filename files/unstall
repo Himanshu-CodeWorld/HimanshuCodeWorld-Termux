@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -e
+clear
+echo -e "\033[1;93mThis removes only Himanshu CodeWorld customization.\033[0m"
+read -rp "Continue? [y/N] " ans
+case "$ans" in y|Y|yes|YES) ;; *) echo "Cancelled."; exit 0;; esac
+
+rm -rf "$HOME/.Himanshu-CodeWorld" "$HOME/.himuucw-tools"
+rm -f "$HOME/.oh-my-zsh/custom/themes/himuucw.zsh-theme"
+
+if [ -f "$HOME/.zshrc" ]; then
+  python3 - "$HOME/.zshrc" <<'PY'
+from pathlib import Path
+p=Path(__import__('sys').argv[1])
+s=p.read_text(errors='ignore')
+start=s.find('\n# >>> Himanshu CodeWorld >>>')
+if start >= 0:
+    end=s.find('\n# <<< Himanshu CodeWorld <<<', start)
+    if end >= 0:
+        s=s[:start] + s[end+len('\n# <<< Himanshu CodeWorld <<<'):]
+        p.write_text(s)
+PY
+fi
+echo -e "\033[1;92m[✓] Himanshu CodeWorld customization removed.\033[0m"
+echo "Restart your terminal."
