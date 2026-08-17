@@ -1,40 +1,49 @@
-# Himanshu CodeWorld
+# HimanshuCodeWorld-Termux
 
-A clean, cross-platform terminal customization for **Termux and Linux**, inspired by the original CODEX-style setup.
+A customized Termux/Linux shell environment inspired by the original CODEX setup, rebranded for **HimanshuCodeWorld**.
 
 ## Features
+- HimanshuCodeWorld Zsh theme and terminal prompt
+- Termux and Debian/Ubuntu Linux support
+- Oh My Zsh, autosuggestions and syntax highlighting
+- Useful commands: `help`, `bname`, `update`, `chat`, `dev`, `report`, `code`, `simu`
+- Terminal dashboard with device and disk information
+- Custom font and Termux colors
+- Update system configurable through environment variables
 
-- HIMANSHU CODEWORLD Zsh prompt
-- Device and disk information
-- `help`, `bname`, `update`, `chat`, `dev`, `report`, `unstall`
-- Termux colors/font support
-- Does not overwrite your existing `.zshrc`
-- No obfuscated payloads or hidden network updater
-
-## Install — Termux
+## Install on Termux
 
 ```bash
 pkg update -y
 pkg install git -y
-git clone <your-repository-url>
-cd Himanshu-CodeWorld
-chmod +x install.sh files/*
+git clone https://github.com/himuucodes/HimanshuCodeWorld-Termux.git
+cd HimanshuCodeWorld-Termux
+chmod +x install.sh
 bash install.sh
 ```
 
-## Install — Ubuntu/Debian
+If your repository uses a different GitHub URL, replace the clone URL with your repository URL.
 
-```bash
-sudo apt update
-sudo apt install -y git zsh curl
-git clone <your-repository-url>
-cd Himanshu-CodeWorld
-chmod +x install.sh files/*
-bash install.sh
+## Commands
+
+```text
+help      Show HimanshuCodeWorld commands
+bname     Change the terminal banner name
+update    Update installed tools
+chat      Open the chat utility
+dev       Developer/report utility
+report    Developer/report utility
+code      Code utility
+simu      Terminal simulator
 ```
 
-Restart the terminal, then run:
+## Update configuration
+
+The installer/update script supports:
 
 ```bash
-help
+export HIMANSHUCODEWORLD_REPO="https://github.com/himuucodes/HimanshuCodeWorld-Termux.git"
+export HIMANSHUCODEWORLD_SERVER="https://himuucodes-server.onrender.com"
 ```
+
+> Review external URLs before publishing your own fork.

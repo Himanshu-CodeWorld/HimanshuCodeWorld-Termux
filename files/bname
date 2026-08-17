@@ -1,15 +1,82 @@
-#!/usr/bin/env bash
-set -e
+#!/bin/bash
 clear
-CONF="$HOME/.Himanshu-CodeWorld/username"
-mkdir -p "$(dirname "$CONF")"
-current="$(cat "$CONF" 2>/dev/null || echo 'HIMANSHU')"
-echo -e "\033[1;96mCurrent banner name: \033[1;92m$current\033[0m"
-read -rp $'\033[1;92m[+] Enter new name ───► \033[0m' name
-[ -n "$name" ] || { echo "Name cannot be empty."; exit 1; }
-if [[ ! "$name" =~ ^[a-zA-Z0-9[:space:]-]+$ ]]; then
-  echo "Use letters, numbers, spaces or hyphens only."; exit 1
+
+# --- dx colors ---
+r='\033[1;91m'
+g='\033[1;92m'
+y='\033[1;93m'
+c='\033[1;96m'
+n='\033[1;0m'
+
+# Check Platform
+if [ -d "/data/data/com.termux/files/usr/" ]; then
+    DIR="$HOME/.termux"
+else
+    DIR="$HOME/.HIMANSHUCODEWORLD"
 fi
-printf '%s\n' "$name" > "$CONF"
-echo -e "\033[1;92m[+] Banner name saved: $name\033[0m"
-echo "Restart your shell to apply it."
+
+USER_FILE="$DIR/usernames.txt"
+ZSHRC="$HOME/.zshrc"
+THEME="$HOME/.oh-my-zsh/themes/himanshucodeworld.zsh-theme"
+
+# Check if file exists
+if [ ! -f "$USER_FILE" ]; then
+    echo -e "\n ${r}[×] Error: HIMANSHUCODEWORLD is not fully configured or usernames.txt is missing.${n}"
+    exit 1
+fi
+
+CURRENT_NAME=$(cat "$USER_FILE")
+
+echo
+echo -e " ${c}             (\_/)"
+echo -e "              (${y}^_^${c})     ${g}Hey dear${c}"
+echo -e "             ⊂(___)づ  ⋅˚₊‧ ଳ ‧₊˚ ⋅"
+echo
+echo -e " [+] ${c}Current Banner Name: ${g}$CURRENT_NAME${n}"
+echo
+
+while true; do
+    read -p "$(echo -e ${g}[${n}+${g}]──[${n}Enter New Name${g}]────►${n} )" name
+    echo
+        
+        if [[ -z "$name" ]]; then
+            echo -e " ${E} ${r}Name cannot be empty!${c}"
+            echo
+            continue
+        fi
+
+       
+        if [[ ! "$name" =~ ^[a-zA-Z0-9[:space:]-]+$ ]]; then
+            echo -e " ${E} ${r}Invalid Input! No fancy fonts or symbols.\n ${E} ${r}Use letters, numbers, hyphens & spaces only.${c}"
+            echo
+            continue
+        fi
+
+        name="${name^^}"
+        name="${name// /-}"
+
+ 
+        len=${#name}
+        if [[ $len -ge 1 && $len -le 8 ]]; then
+            break
+        else
+            echo -e " ${E} ${r}Name must be between ${g}1 and 8${r} characters.\n ${y}Current length is: ${g}$len${c}"
+            echo
+        fi
+    done
+
+# Replace the name in config files
+if [ -f "$ZSHRC" ]; then
+    sed -i "s/$CURRENT_NAME/$name/g" "$ZSHRC"
+fi
+
+if [ -f "$THEME" ]; then
+    sed -i "s/$CURRENT_NAME/$name/g" "$THEME"
+fi
+
+# Update the record
+echo "$name" > "$USER_FILE"
+
+echo -e " ${g}[+] Banner name successfully changed to: $name${n}"
+echo -e " ${y}[!] Type 'clear' or restart your terminal to see the changes.${n}"
+echo
