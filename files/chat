@@ -63,7 +63,12 @@ A='\033[1;92m[\033[1;00m+\033[1;92m]\033[1;92m'
 CC='\033[1;92m[\033[1;00m</>\033[1;92m]\033[92m'
 lm='\033[1;96m▱▱▱▱▱▱\033[1;0m〄\033[1;96m▱▱▱▱▱▱\033[1;00m'
 
-URL="https://termuxtools-server-sooty.vercel.app"
+URL="${HCW_CHAT_SERVER:-}"
+if [[ -z "$URL" ]]; then
+    echo "HimanshuCodeWorld chat server is not configured."
+    echo "Set HCW_CHAT_SERVER to your own backend URL and try again."
+    exit 1
+fi
 mkdir -p tmp
 USERNAME_DIR="$HOME/.DX"
 USERNAME_FILE="$USERNAME_DIR/usernames.txt"
@@ -133,7 +138,7 @@ trap _cleanup EXIT INT TERM
 inter() {
     clear; echo
     echo -e "                ${g}╔════════════════╗"
-    echo -e "                ${g}║ ${n}</>  ${c}TERMUXTOOLS${g}  ║"
+    echo -e "                ${g}║ ${n}</>  ${c}HIMANSHUCODEWORLD${g}  ║"
     echo -e "                ${g}╚════════════════╝"
     echo -e "  ${g}╔════════════════════════════════════════════╗"
     echo -e "  ${g}║  ${y} Checking Your Internet Connection¡ ${g}      ║"
@@ -170,7 +175,7 @@ save_username() {
     mkdir -p "$USERNAME_DIR"
     sleep 0.8; clear; echo
     echo -e "		        ${g}Hey ${y}$username"
-    echo -e "${c}              (\_/)\n              (${y}^ω^${c})       ${g}I'm TermuxTools${c}\n            ⊂(___)づ  ⋅˚₊‧ ଳ ‧₊˚ ⋅\n"
+    echo -e "${c}              (\_/)\n              (${y}^ω^${c})       ${g}I'm Himanshu${c}\n            ⊂(___)づ  ⋅˚₊‧ ଳ ‧₊˚ ⋅\n"
     echo -e " ${A} ${c}Your account created ${g}Successfully¡${c}"
     echo "$username" > "$USERNAME_FILE"
     echo; sleep 0.8
@@ -257,7 +262,7 @@ render_header() {
     tput cup 0 0; tput el; printf '%b' " ${r}●${y}●${b}●${n}  $cur_date  ${dim}│${n}  $cur_time"
     tput cup 1 0; tput el; printf '%b' " $lm"
     tput cup 2 0; tput el; printf '%b' "  ${c}┏┓┓┏┏┓┏┳┓"
-    tput cup 3 0; tput el; printf '%b' "  ${c}┃ ┣┫┣┫ ┃               ${CC} ${g}t.me/Termuxtermuxtools"
+    tput cup 3 0; tput el; printf '%b' "  ${c}┃ ┣┫┣┫ ┃               ${CC} ${g}t.me/Termuxhimanshucodeworld"
     tput cup 4 0; tput el; printf '%b' "  ${c}┗┛┛┗┛┗ ┻"
     tput cup 5 0; tput el; printf '%b' " $lm"
     tput cup 6 0; tput el

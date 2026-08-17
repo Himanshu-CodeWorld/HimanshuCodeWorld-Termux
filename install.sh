@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
-mkdir -p $HOME/.TERMUXTOOLS
-mkdir -p $HOME/.TermuxTools-simu
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+mkdir -p $HOME/.CODEX
+mkdir -p $HOME/.HimanshuCodeWorld-simu
 mkdir -p $HOME/.toolx
 # dx color
 r='\033[1;91m'
@@ -53,10 +54,10 @@ exit_script() {
     echo -e "${c}              (\_/)"
     echo -e "              (${y}^_^${c})     ${A} ${g}Hey dear${c}"
     echo -e "             ⊂(___)づ  ⋅˚₊‧ ଳ ‧₊˚ ⋅"              
-    echo -e "\n ${g}[${n}${KER}${g}] ${c}Exiting ${g}TermuxTools Banner \033[1;36m"
+    echo -e "\n ${g}[${n}${KER}${g}] ${c}Exiting ${g}HimanshuCodeWorld Banner \033[1;36m"
     echo
     cd "$HOME"
-    rm -rf "$HOME/TERMUXTOOLS"
+    rm -rf "$BASE_DIR"
     kill -9 $PPID 2>/dev/null
     exit 0
 }
@@ -109,11 +110,11 @@ start() {
     N='\e[0m'
     TOTAL_CHARS=0
     texts=(
-        "「 TERMUXTOOLS STARTED 」"
-        "「 HELLO DEAR USER I'M TERMUXTOOLS 」"
-        "「 TERMUXTOOLS WILL PROTECT YOU 」"
+        "「 HIMANSHUCODEWORLD STARTED 」"
+        "「 HELLO DEAR USER I'M HIMANSHU 」"
+        "「 HIMANSHUCODEWORLD WILL PROTECT YOU 」"
         "「 GOODBYE 」"
-        "「 ENJOY OUR TERMUXTOOLS 」"
+        "「 ENJOY OUR HIMANSHUCODEWORLD 」"
         "「............... 」"
     )
     for t in "${texts[@]}"; do
@@ -336,26 +337,26 @@ setup_termux_paths() {
     dx="$ds/font.ttf"
     simu="$ds/colors.properties"
     if [ ! -f "$dx" ]; then
-        cp $HOME/TERMUXTOOLS/files/font.ttf "$ds"
+        cp $BASE_DIR/files/font.ttf "$ds"
     fi
     if [ ! -f "$simu" ]; then
-        cp $HOME/TERMUXTOOLS/files/colors.properties "$ds"
+        cp $BASE_DIR/files/colors.properties "$ds"
     fi
-    mv $HOME/TERMUXTOOLS/files/chat $HOME/.toolx/
+    mv $BASE_DIR/files/chat $HOME/.toolx/
     chmod +x $HOME/.toolx/chat
-    mv $HOME/TERMUXTOOLS/files/unstall $HOME/.toolx/
+    mv $BASE_DIR/files/unstall $HOME/.toolx/
     chmod +x $HOME/.toolx/unstall
-    mv $HOME/TERMUXTOOLS/files/bname $HOME/.toolx/
+    mv $BASE_DIR/files/bname $HOME/.toolx/
     chmod +x $HOME/.toolx/bname
-    mv $HOME/TERMUXTOOLS/files/simu $PREFIX/bin/
+    mv $BASE_DIR/files/simu $PREFIX/bin/
     chmod +x $PREFIX/bin/simu
-    mv $HOME/TERMUXTOOLS/files/dev $HOME/.toolx/
+    mv $BASE_DIR/files/dev $HOME/.toolx/
     chmod +x $HOME/.toolx/dev
-    mv $HOME/TERMUXTOOLS/files/update $HOME/.toolx/
+    mv $BASE_DIR/files/update $HOME/.toolx/
     chmod +x $HOME/.toolx/update
-    mv $HOME/TERMUXTOOLS/files/help $HOME/.toolx/
+    mv $BASE_DIR/files/help $HOME/.toolx/
     chmod +x $HOME/.toolx/help
-    mv $HOME/TERMUXTOOLS/files/code $PREFIX/bin/
+    mv $BASE_DIR/files/code $PREFIX/bin/
     chmod +x $PREFIX/bin/code
     termux-reload-settings
 }
@@ -363,23 +364,23 @@ setup_termux_paths() {
 setup_linux_paths() {
     mkdir -p $HOME/.toolx
     mkdir -p ~/.local/share/fonts
-    cp $HOME/TERMUXTOOLS/files/font.ttf ~/.local/share/fonts/
+    cp $BASE_DIR/files/font.ttf ~/.local/share/fonts/
     fc-cache -fv  > /dev/null
-    mv $HOME/TERMUXTOOLS/files/chat $HOME/.toolx/
+    mv $BASE_DIR/files/chat $HOME/.toolx/
     chmod +x $HOME/.toolx/chat
-    mv $HOME/TERMUXTOOLS/files/unstall $HOME/.toolx/
+    mv $BASE_DIR/files/unstall $HOME/.toolx/
     chmod +x $HOME/.toolx/unstall
-    mv $HOME/TERMUXTOOLS/files/bname $HOME/.toolx/
+    mv $BASE_DIR/files/bnamel $HOME/.toolx/
     chmod +x $HOME/.toolx/bname
-    mv $HOME/TERMUXTOOLS/files/dev $HOME/.toolx/
+    mv $BASE_DIR/files/dev $HOME/.toolx/
     chmod +x $HOME/.toolx/dev
-    sudo mv $HOME/TERMUXTOOLS/files/simu /usr/local/bin/
+    sudo mv $BASE_DIR/files/simu /usr/local/bin/
     sudo chmod +x /usr/local/bin/simu
-    mv $HOME/TERMUXTOOLS/files/update $HOME/.toolx/
+    mv $BASE_DIR/files/update $HOME/.toolx/
     chmod +x $HOME/.toolx/update
-    mv $HOME/TERMUXTOOLS/files/help $HOME/.toolx/
+    mv $BASE_DIR/files/help $HOME/.toolx/
     chmod +x $HOME/.toolx/help
-    sudo mv $HOME/TERMUXTOOLS/files/code /usr/local/bin/
+    sudo mv $BASE_DIR/files/code /usr/local/bin/
     chmod +x /usr/local/bin/code
 }
 
@@ -392,7 +393,7 @@ dxnetcheck() {
     echo -e "                       ⊂(___)づ"
     echo
     echo -e "                ${g}╔════════════════╗"
-    echo -e "                ${g}║ ${n}</>  ${c}TERMUXTOOLS${g}   ║"
+    echo -e "                ${g}║ ${n}</>  ${c}HIMANSHUCODEWORLD${g}   ║"
     echo -e "                ${g}╚════════════════╝"
     echo -e "  ${g}╔════════════════════════════════════════════╗"
     echo -e "  ${g}║  ${y} Checking Your Internet Connection¡ ${g}      ║"
@@ -412,9 +413,9 @@ dxnetcheck() {
 }
 
 sync_id() {
-UPDATE_LOG="$HOME/.termuxtools_update_id.txt"
+UPDATE_LOG="$HOME/.himanshucodeworld_update_id.txt"
     if command -v curl >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
-        local sid=$(curl -s --connect-timeout 5 "$TERMUXTOOLS/update" 2>/dev/null | jq -r '.id' 2>/dev/null | tr -d '[:space:]')
+        local sid=$(curl -s --connect-timeout 5 "$HIMANSHUCODEWORLD/update" 2>/dev/null | jq -r '.id' 2>/dev/null | tr -d '[:space:]')
         [ -n "$sid" ] && [ "$sid" != "null" ] && echo "$sid" > "$UPDATE_LOG"
     fi
 }
@@ -463,18 +464,18 @@ donotchange() {
     if [ -d "/data/data/com.termux/files/usr/" ]; then
         D1="$HOME/.termux"
     else
-        D1="$HOME/.TERMUXTOOLS"
+        D1="$HOME/.CODEX"
         mkdir -p "$D1"
     fi
     
     USERNAME_FILE="$D1/usernames.txt"
-    INPUT_FILE="$HOME/TERMUXTOOLS/files/.zshrc"
-    THEME_INPUT="$HOME/TERMUXTOOLS/files/.termuxtools.zsh-theme"
+    INPUT_FILE="$BASE_DIR/files/.zshrc"
+    THEME_INPUT="$BASE_DIR/files/.himanshucodeworld.zsh-theme"
     OUTPUT_ZSHRC="$HOME/.zshrc"
-    OUTPUT_THEME="$HOME/.oh-my-zsh/themes/termuxtools.zsh-theme"
+    OUTPUT_THEME="$HOME/.oh-my-zsh/themes/himanshucodeworld.zsh-theme"
     TEMP_FILE="$HOME/temp.zshrc"
-    sed "s/TERMUXTOOLS/$name/g" "$INPUT_FILE" > "$TEMP_FILE" &&
-    sed "s/TERMUXTOOLS/$name/g" "$THEME_INPUT" > "$OUTPUT_THEME" &&
+    sed "s/HIMANSHU/$name/g" "$INPUT_FILE" > "$TEMP_FILE" &&
+    sed "s/HIMANSHU/$name/g" "$THEME_INPUT" > "$OUTPUT_THEME" &&
  
   if [[ $? -eq 0 ]]; then
         mv "$TEMP_FILE" "$OUTPUT_ZSHRC"
@@ -483,7 +484,7 @@ donotchange() {
         echo
         echo -e "		        ${g}Hey ${y}$name"
         echo -e "${c}              (\_/)"
-        echo -e "              (${y}^ω^${c})     ${g}I'm TermuxTools${c}"
+        echo -e "              (${y}^ω^${c})     ${g}I'm Himanshu${c}"
         echo -e "             ⊂(___)づ  ⋅˚₊‧ ଳ ‧₊˚ ⋅"
         echo
         echo -e " ${A} ${c}Your Banner created ${g}Successfully¡${c}"
@@ -515,16 +516,14 @@ banner() {
     echo
     if [ $random_number -eq 0 ]; then
         echo -e "${b}╭════════════════════════⊷"
-        echo -e "${b}┃ ${g}[${n}ム${g}] ᴛɢ: ${y}t.me/Termuxtermuxtools"
         echo -e "${b}╰════════════════════════⊷"
     else
         echo -e "${b}╭══════════════════════════⊷"
-        echo -e "${b}┃ ${g}[${n}ム${g}] ᴛɢ: ${y}t.me/alphatermuxtools369"
         echo -e "${b}╰══════════════════════════⊷"
     fi
     echo
-    echo -e "${b}╭══ ${g}〄 ${y}ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ ${g}〄"
-    echo -e "${b}┃❁ ${g}ᴄʀᴇᴀᴛᴏʀ: ${y}ᴅx-ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ"
+    echo -e "${b}╭══ ${g}〄 ${y}ᴄᴏᴅᴇx ${g}〄"
+    echo -e "${b}┃❁ ${g}ᴄʀᴇᴀᴛᴏʀ: ${y}ᴅx-ᴄᴏᴅᴇx"
     echo -e "${b}┃❁ ${g}ᴅᴇᴠɪᴄᴇ: ${y}${VENDOR} ${MODEL}"
     echo -e "${b}╰┈➤ ${g}Hey ${y}Dear"
     echo
@@ -553,7 +552,7 @@ setupx() {
         linux_spin
     fi
 
-    if [ -d "$HOME/TERMUXTOOLS" ]; then
+    if [ -d "$BASE_DIR" ]; then
         sleep 2
         clear
         banner
@@ -578,7 +577,7 @@ setupx() {
         echo
         sleep 3
         cd "$HOME"
-        rm -rf "$HOME/TERMUXTOOLS"
+        rm -rf "$BASE_DIR"
         kill -9 $PPID 2>/dev/null
         exit 0
     else
@@ -607,16 +606,14 @@ banner2() {
     echo
     if [ $random_number -eq 0 ]; then
         echo -e "${b}╭════════════════════════⊷"
-        echo -e "${b}┃ ${g}[${n}ム${g}] ᴛɢ: ${y}t.me/Termuxtermuxtools"
         echo -e "${b}╰════════════════════════⊷"
     else
         echo -e "${b}╭══════════════════════════⊷"
-        echo -e "${b}┃ ${g}[${n}ム${g}] ᴛɢ: ${y}t.me/alphatermuxtools369"
         echo -e "${b}╰══════════════════════════⊷"
     fi
     echo
-    echo -e "${b}╭══ ${g}〄 ${y}ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ ${g}〄"
-    echo -e "${b}┃❁ ${g}ᴄʀᴇᴀᴛᴏʀ: ${y}ᴅx-ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ"
+    echo -e "${b}╭══ ${g}〄 ${y}ᴄᴏᴅᴇx ${g}〄"
+    echo -e "${b}┃❁ ${g}ᴄʀᴇᴀᴛᴏʀ: ${y}ᴅx-ᴄᴏᴅᴇx"
     echo -e "${b}╰┈➤ ${g}Hey ${y}Dear"
     echo
     echo -e "${c}╭════════════════════════════════════════════════⊷"
@@ -624,8 +621,116 @@ banner2() {
     echo -e "${c}╰════════════════════════════════════════════════⊷"
 }
 
-# Start installation directly — no Free/Setup selection.
-clear
-echo -e " ${g}[${n}${HOMES}${g}] ${c}Starting setup...${n}"
-sleep 1
-setupx
+options=("Free Usage" "Premium")
+selected=0
+
+display_menu() {
+    clear
+    banner2
+    echo
+    echo -e " ${g}■ \e[4m${p}Select An Option\e[0m ${g}▪︎${n}"
+    echo
+    for i in "${!options[@]}"; do
+        if [ $i -eq $selected ]; then
+            echo -e " ${g}〄> ${c}${options[$i]} ${g}<〄${n}"
+        else
+            echo -e "     ${options[$i]}"
+        fi
+    done
+}
+
+if [ -d "/data/data/com.termux/files/usr/" ]; then
+    clear
+    echo
+    echo -e " ${p}■ \e[4m${g}Use Button\e[4m ${p}▪︎${n}"
+    echo
+    echo -e " ${y}Termux: Use Extra key Button with move${n}"
+    echo
+    echo -e " UP          ↑"
+    echo -e " DOWN        ↓"
+    echo
+    echo -e " ${g}Select option Click Enter button"
+    echo
+    echo -e " ${b}■ \e[4m${c}If you understand, click the Enter Button\e[4m ${b}▪︎${n}"
+    read -p ""
+    clear
+        
+    while true; do
+        display_menu
+        read -rsn1 input
+        if [[ "$input" == $'\e' ]]; then
+            read -rsn2 -t 0.1 input
+            case "$input" in
+                '[A') # Up arrow
+                    ((selected--))
+                    if [ $selected -lt 0 ]; then
+                        selected=$((${#options[@]} - 1))
+                    fi
+                    ;;
+                '[B') # Down arrow
+                    ((selected++))
+                    if [ $selected -ge ${#options[@]} ]; then
+                        selected=0
+                    fi
+                    ;;
+                *)
+                    display_menu
+                    ;;
+            esac
+        elif [[ "$input" == "" ]]; then # Enter key
+            case ${options[$selected]} in
+                "Free Usage")
+                    echo -e "\n ${g}[${n}${HOMES}${g}] ${c}Continue Free..!${n}"
+                    sleep 1
+                    setupx
+                    break
+                    ;;
+                "Premium")
+                    echo -e "\n ${g}[${n}${HOST}${g}] ${c}Wait for opening Telegram..!${n}"
+                    sleep 1
+                    if command -v termux-open >/dev/null 2>&1; then
+                        termux-open "https://t.me/HimanshuCodeWorldownerbot"
+                    else
+                        xdg-open "https://t.me/HimanshuCodeWorldownerbot" 2>/dev/null
+                    fi
+                    echo -e "\n ${g}[${n}${HOMES}${g}] ${c}Switching to Free Usage to continue..!${n}"
+                    sleep 2
+                    setupx
+                    break
+                    ;;
+            esac
+        fi
+    done
+else
+    while true; do
+        clear
+        banner2
+        echo
+        echo -e " ${g}■ \e[4m${p}Select An Option\e[0m ${g}▪︎${n}"
+        echo
+        echo -e " ${g}[${n}1${g}] ${c}Free Usage${n}"
+        echo -e " ${g}[${n}2${g}] ${c}Premium${n}"
+        echo
+        read -p "$(echo -e ${A}${g}──[${n}Select Option${g}]────► ${n})" choice
+        
+        if [ "$choice" == "1" ]; then
+            echo -e "\n ${g}[${n}${HOMES}${g}] ${c}Continue Free..!${n}"
+            sleep 1
+            setupx
+            break
+        elif [ "$choice" == "2" ]; then
+            echo -e "\n ${g}[${n}${HOST}${g}] ${c}Wait for opening Telegram..!${n}"
+            sleep 1
+            if command -v xdg-open >/dev/null 2>&1; then
+                xdg-open "https://t.me/HimanshuCodeWorldownerbot"
+            fi
+            echo -e "\n ${g}[${n}${HOMES}${g}] ${c}Switching to Free Usage to continue..!${n}"
+            sleep 2
+            setupx
+            break
+        else
+            echo -e "\n ${E} ${r}Invalid Choice! Please enter 1 or 2.${n}"
+            sleep 1
+        fi
+    done
+fi

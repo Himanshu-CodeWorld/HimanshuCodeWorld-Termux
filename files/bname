@@ -12,16 +12,16 @@ n='\033[1;0m'
 if [ -d "/data/data/com.termux/files/usr/" ]; then
     DIR="$HOME/.termux"
 else
-    DIR="$HOME/.TERMUXTOOLS"
+    DIR="$HOME/.CODEX"
 fi
 
 USER_FILE="$DIR/usernames.txt"
 ZSHRC="$HOME/.zshrc"
-THEME="$HOME/.oh-my-zsh/themes/termuxtools.zsh-theme"
+THEME="$HOME/.oh-my-zsh/themes/himanshucodeworld.zsh-theme"
 
 # Check if file exists
 if [ ! -f "$USER_FILE" ]; then
-    echo -e "\n ${r}[×] Error: TERMUXTOOLS is not fully configured or usernames.txt is missing.${n}"
+    echo -e "\n ${r}[×] Error: HIMANSHUCODEWORLD is not fully configured or usernames.txt is missing.${n}"
     exit 1
 fi
 
@@ -57,10 +57,10 @@ while true; do
 
  
         len=${#name}
-        if [[ $len -ge 1 && $len -le 8 ]]; then
+        if [[ $len -ge 1 && $len -le 20 ]]; then
             break
         else
-            echo -e " ${E} ${r}Name must be between ${g}1 and 8${r} characters.\n ${y}Current length is: ${g}$len${c}"
+            echo -e " ${E} ${r}Name must be between ${g}1 and 20${r} characters.\n ${y}Current length is: ${g}$len${c}"
             echo
         fi
     done

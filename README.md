@@ -1,20 +1,24 @@
-# TermuxTools-Termux
+# HimanshuCodeWorld
 
-A customized Termux/Linux shell environment with a clean terminal prompt, utility commands, developer helpers, and installation scripts.
+A rebranded terminal customization/toolkit based on the uploaded CODEX project.
 
-## Features
-- Custom Zsh terminal prompt
-- Termux and Linux support
-- Developer utility commands
-- `help`, `bname`, `update`, `chat`, `dev`, `code`, `simu`, `unstall`
-- No personal-name branding
+## Brand
+- Name: HimanshuCodeWorld
+- Terminal theme: himanshucodeworld
+- Main commands: `help`, `bname`, `update`, `chat`, `dev`, `report`, `unstall`
 
 ## Install
+
 ```bash
-git clone https://github.com/himuucodes/TermuxTools-Termux.git
-cd TermuxTools-Termux
+cd HimanshuCodeWorld-main
 chmod +x install.sh
 bash install.sh
 ```
 
-The installer starts setup directly.
+### Termux
+Run the same commands from Termux.
+
+## Important
+Before using the update/chat features, configure your own backend/repository URLs in the scripts where placeholders such as `YOUR-GITHUB-USERNAME/HimanshuCodeWorld` and `your-server.example.com` appear.
+
+This package keeps the original third-party Oh My Zsh/plugin installation sources.

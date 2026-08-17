@@ -23,7 +23,7 @@ ask() {
     echo -e "              (${p}♡ω♡${c})"
     echo -e "             ⊂(___)づ ᯓᡣ𐭩"
     echo
-    echo -e " ${C} ${y}Do you want to Update TermuxTools banner?${n}"
+    echo -e " ${C} ${y}Do you want to Update HimanshuCodeWorld banner?${n}"
     echo -e " ${A} ${g}Type ${y}'y'${g} or ${y}'yes'${g} to continue, otherwise cancel.${c}"
     echo
     read -p "[+]──[Select Option]────► " choice
@@ -51,7 +51,7 @@ dxnetcheck() {
     echo -e "                       ⊂(___)づ"
     echo
     echo -e "                ${g}╔════════════════╗"
-    echo -e "                ${g}║ ${n}</>  ${c}TERMUXTOOLS${g}   ║"
+    echo -e "                ${g}║ ${n}</>  ${c}HIMANSHUCODEWORLD${g}   ║"
     echo -e "                ${g}╚════════════════╝"
     echo -e "  ${g}╔════════════════════════════════════════════╗"
     echo -e "  ${g}║  ${y} Checking Your Internet Connection¡ ${g}      ║"
@@ -103,22 +103,17 @@ spin() {
 if [ -d "$HOME/.toolx" ]; then
     clear
 else
-    echo -e "\n ${g}[${n}$HOST${g}] ${c}TermuxTools Not Exits${n}\n"
+    echo -e "\n ${g}[${n}$HOST${g}] ${c}HimanshuCodeWorld Not Exits${n}\n"
     exit 0
 fi
 
 ask
 dxnetcheck
 banner
-echo -e " ${A} ${c}TermuxTools Initialization Started...${n}"
+echo -e " ${A} ${c}HimanshuCodeWorld Initialization Started...${n}"
 sleep 1.5
 
 cd "$HOME" || exit 1
-rm -rf TERMUXTOOLS
-git clone https://github.com/Alpha-TermuxTools369/TERMUXTOOLS.git >/dev/null 2>&1 &
-spin
-
-if [ -d "TERMUXTOOLS" ]; then
-    cd TERMUXTOOLS || exit 1
-    bash install.sh
-fi
+echo -e " ${A} ${y}Auto-update is disabled until you configure your own repository.${n}"
+echo -e " ${C} ${c}Edit this script and set your HimanshuCodeWorld repository URL.${n}"
+sleep 2

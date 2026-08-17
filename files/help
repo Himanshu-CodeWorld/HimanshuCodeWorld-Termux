@@ -24,7 +24,7 @@ USER="\uf007"
 if [ -d "/data/data/com.termux/files/usr/" ]; then
     DIR="$HOME/.termux"
 else
-    DIR="$HOME/.TERMUXTOOLS"
+    DIR="$HOME/.CODEX"
 fi
 
 USERNAME_FILE="$DIR/usernames.txt"
@@ -83,22 +83,22 @@ data=$(check_disk_usage)
 if [ $random_number -eq 0 ]; then
     echo -e "\n\n              ${g}Hey ${y}$username"
     echo -e "${c}         (\_/)"
-    echo -e "         (${y}^ω^${c})     ${g}I'm TermuxTools${c}"
+    echo -e "         (${y}^ω^${c})     ${g}I'm Himanshu${c}"
     echo -e "        ⊂(___)づ  ⋅˚₊‧ ଳ ‧₊˚ ⋅"
     echo
-    echo -e " ${A} ${c}All Command ${g}TermuxTools Banner¡${c}"
+    echo -e " ${A} ${c}All Command ${g}HimanshuCodeWorld Banner¡${c}"
 else
     echo -e "\n\n   ${c}___  _  _       __  __  ___  ___  _  _"
     echo -e "  ${c}(   \( \/ )___  / _)/  \(   \(  _)( \/ )"
     echo -e "  ${n} ) ) ))  ((___)( (_( () )) ) )) _) )  ("
     echo -e " ${y} (___/(_/\_)     \__)\__/(___/(___)(_/\_)"
     echo
-    echo -e " ${A} ${c}All Command ${g}TermuxTools Banner¡${c}"
+    echo -e " ${A} ${c}All Command ${g}HimanshuCodeWorld Banner¡${c}"
 fi
 
 # Info Section
-echo -e "\n${b}╭══ ${g}〄 ${y}ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ ${g}〄"
-echo -e "${b}┃❁ ${g}ᴄʀᴇᴀᴛᴏʀ: ${y}ᴅx-ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ"
+echo -e "\n${b}╭══ ${g}〄 ${y}ᴄᴏᴅᴇx ${g}〄"
+echo -e "${b}┃❁ ${g}ᴄʀᴇᴀᴛᴏʀ: ${y}ᴅx-ᴄᴏᴅᴇx"
 echo -e "${b}┃❁ ${g}ᴅᴇᴠɪᴄᴇ: ${y}${devicename}"
 echo -e "${b}┃❁ ${g}ᴅɪꜱᴋ: ${y}${data}"
 echo -e "${b}╰┈➤ ${g}[${n}${USER}${g}] ${g}Hey ${y}${username}"
@@ -110,13 +110,13 @@ echo
 
 # Command/Alias List
 echo -e "${b}╭═════❂ ${g}${aHELL} ᴄᴏᴍᴍᴀɴᴅ ${b}❂═════⊷"
-echo -e "${b}┃ ${p}❏ ${g}help       ${p}[ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ ʜᴇʟᴘ ᴍᴇɴᴜ]"
+echo -e "${b}┃ ${p}❏ ${g}help       ${p}[ᴄᴏᴅᴇx ʜᴇʟᴘ ᴍᴇɴᴜ]"
 echo -e "${b}┃ ${p}❏ ${g}bname      ${p}[ᴄʜᴀɴɢᴇ ʙᴀɴɴᴇʀ ɴᴀᴍᴇ]"
 echo -e "${b}┃ ${p}❏ ${g}unstall    ${p}[ᴜɴɪɴꜱᴛᴀʟʟ ꜱᴄʀɪᴘᴛ/ᴛᴏᴏʟꜱ]"
-echo -e "${b}┃ ${p}❏ ${g}chat       ${p}[ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ ɢʟᴏʙᴀʟ ᴄʜᴀᴛ]"
+echo -e "${b}┃ ${p}❏ ${g}chat       ${p}[ᴄᴏᴅᴇx ɢʟᴏʙᴀʟ ᴄʜᴀᴛ]"
 echo -e "${b}┃ ${p}❏ ${g}dev        ${p}[ʀᴇᴘᴏʀᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ]"
 echo -e "${b}┃ ${p}❏ ${g}report     ${p}[ʀᴇᴘᴏʀᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ]"
-echo -e "${b}┃ ${p}❏ ${g}update     ${p}[ᴜᴘᴅᴀᴛᴇ ʜɪᴍᴀɴsʜᴜᴄᴏᴅᴇᴡᴏʀʟᴅ ʙᴀɴɴᴇʀ]"
+echo -e "${b}┃ ${p}❏ ${g}update     ${p}[ᴜᴘᴅᴀᴛᴇ ᴄᴏᴅᴇx ʙᴀɴɴᴇʀ]"
 echo -e "${b}╰═══════════════════════⊷"
 echo
 echo -e "${b}╭═════❂ ${g}${aHELL} ᴍɪɴɪ ᴄᴏᴍᴍᴀɴᴅ ${b}❂═════⊷"
