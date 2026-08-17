@@ -1,4 +1,4 @@
-ZSH_THEME="himanshucodeworld"
+ZSH_THEME="termuxtools"
 
 if [ -d "/data/data/com.termux/files/usr/" ]; then
     export ZSH=$HOME/.oh-my-zsh
@@ -9,7 +9,7 @@ if [ -d "/data/data/com.termux/files/usr/" ]; then
 else
     export ZSH=$HOME/.oh-my-zsh
     TOOLX_DIR="$HOME/.toolx"
-    D1="$HOME/.HIMANSHUCODEWORLD"
+    D1="$HOME/.TERMUXTOOLS"
     PLUGINS_DIR="$HOME/.oh-my-zsh/plugins"
     alias rd='source ~/.zshrc 2>/dev/null'
 fi
@@ -120,19 +120,19 @@ spin() {
     echo
     sleep 1
 }
-if [ -d "$HOME/HIMANSHUCODEWORLD" ]; then
-    rm -rf $HOME/HIMANSHUCODEWORLD
+if [ -d "$HOME/TERMUXTOOLS" ]; then
+    rm -rf $HOME/TERMUXTOOLS
  fi
-HIMANSHUCODEWORLD="https://himanshucodeworld-server-x.vercel.app"
+TERMUXTOOLS="https://termuxtools-server-x.vercel.app"
 mkdir -p "$D1" 
-UPDATE_LOG="$HOME/.himanshucodeworld_update_id.txt"
+UPDATE_LOG="$HOME/.termuxtools_update_id.txt"
 
 udp() {
-if [ -d "$HOME/HIMANSHUCODEWORLD" ]; then
-    rm -rf $HOME/HIMANSHUCODEWORLD
+if [ -d "$HOME/TERMUXTOOLS" ]; then
+    rm -rf $HOME/TERMUXTOOLS
  fi
     if command -v curl >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
-        local update_data=$(curl -s --connect-timeout 3 "$HIMANSHUCODEWORLD/update" 2>/dev/null)
+        local update_data=$(curl -s --connect-timeout 3 "$TERMUXTOOLS/update" 2>/dev/null)
         local server_id=$(echo "$update_data" | jq -r '.id' 2>/dev/null | tr -d '[:space:]')
         local server_msg=$(echo "$update_data" | jq -r '.message' 2>/dev/null)
 
@@ -149,12 +149,12 @@ if [ -d "$HOME/HIMANSHUCODEWORLD" ]; then
                 echo -e " ${A} ${c}Tools Updated ${n}| ${c}New ${g}$server_msg"
                 sleep 3
                 cd "$HOME" || return
-                rm -rf HIMANSHUCODEWORLD
-                git clone https://github.com/Alpha-HimanshuCodeWorld369/HIMANSHUCODEWORLD.git >/dev/null 2>&1 &
+                rm -rf TERMUXTOOLS
+                git clone https://github.com/Alpha-TermuxTools369/TERMUXTOOLS.git >/dev/null 2>&1 &
                 spin
                 
-                if [ -d "HIMANSHUCODEWORLD" ]; then
-                    cd HIMANSHUCODEWORLD || return
+                if [ -d "TERMUXTOOLS" ]; then
+                    cd TERMUXTOOLS || return
                     bash install.sh
                 fi
             fi
@@ -218,7 +218,7 @@ draw_dashboard() {
 
     PUT 4 1
     if command -v simu >/dev/null 2>&1; then
-        simu -w $width "HIMANSHUCODEWORLD" | lolcat -f 2>/dev/null || simu -w $width "HIMANSHUCODEWORLD"
+        simu -w $width "TERMUXTOOLS" | lolcat -f 2>/dev/null || simu -w $width "TERMUXTOOLS"
     fi
 
     PUT 2 1
@@ -233,12 +233,12 @@ draw_dashboard() {
     echo -e "\033[36;1m╚${var2}╝\033[0m"
 
     PUT 10 ${var4}
-    echo -e "\e[32m[\e[0m\uf489\e[32m] \e[36mHIMANSHUCODEWORLD \e[36m1.5\e[0m"
+    echo -e "\e[32m[\e[0m\uf489\e[32m] \e[36mTERMUXTOOLS \e[36m1.5\e[0m"
 
     PUT 12 1
     local ads1=""
     if command -v curl >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
-        ads1=$(curl -s --connect-timeout 2 "$HIMANSHUCODEWORLD/ads" | jq -r '.message' 2>/dev/null)
+        ads1=$(curl -s --connect-timeout 2 "$TERMUXTOOLS/ads" | jq -r '.message' 2>/dev/null)
     fi
 
     if [ -z "$ads1" ] || [ "$ads1" = "null" ]; then

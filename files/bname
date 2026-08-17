@@ -12,16 +12,16 @@ n='\033[1;0m'
 if [ -d "/data/data/com.termux/files/usr/" ]; then
     DIR="$HOME/.termux"
 else
-    DIR="$HOME/.HIMANSHUCODEWORLD"
+    DIR="$HOME/.TERMUXTOOLS"
 fi
 
 USER_FILE="$DIR/usernames.txt"
 ZSHRC="$HOME/.zshrc"
-THEME="$HOME/.oh-my-zsh/themes/himanshucodeworld.zsh-theme"
+THEME="$HOME/.oh-my-zsh/themes/termuxtools.zsh-theme"
 
 # Check if file exists
 if [ ! -f "$USER_FILE" ]; then
-    echo -e "\n ${r}[×] Error: HIMANSHUCODEWORLD is not fully configured or usernames.txt is missing.${n}"
+    echo -e "\n ${r}[×] Error: TERMUXTOOLS is not fully configured or usernames.txt is missing.${n}"
     exit 1
 fi
 
